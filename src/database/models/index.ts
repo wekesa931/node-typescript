@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize'
 import dotenv from 'dotenv'
+import { TodoInstance, ToDoAttributes, TodoInit } from './todo'
 
 dotenv.config()
 
@@ -12,11 +13,13 @@ const sequelize = new Sequelize.Sequelize(config.url as string, config)
 interface Database {
   sequelize: Sequelize.Sequelize
   Sequelize: Sequelize.SequelizeStatic
+  Todos: Sequelize.Model<TodoInstance, ToDoAttributes>
 }
 
 const db: Database = {
   sequelize,
-  Sequelize: Sequelize.Sequelize
+  Sequelize: Sequelize.Sequelize,
+  Todos: TodoInit(sequelize)
 }
 
 Object.keys(db).forEach((modelName): void => {
