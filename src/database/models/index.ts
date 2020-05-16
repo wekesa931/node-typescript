@@ -19,7 +19,7 @@ interface Database {
 const db: Database = {
   sequelize,
   Sequelize: Sequelize.Sequelize,
-  Todos: TodoInit(sequelize)
+  Todos: TodoInit(sequelize),
 }
 
 Object.keys(db).forEach((modelName): void => {

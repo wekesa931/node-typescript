@@ -9,7 +9,6 @@
 //   return Todo;
 // };
 
-
 /* tslint:disable */
 import * as Sequelize from 'sequelize'
 import { SequelizeAttributes } from '../../types/sequelize'
@@ -25,7 +24,6 @@ export type TodoInstance = Sequelize.Instance<ToDoAttributes> & ToDoAttributes
 
 export const TodoInit = (sequalize: Sequelize.Sequelize): Sequelize.Model<TodoInstance, ToDoAttributes> => {
   const attributes: SequelizeAttributes<ToDoAttributes> = {
-    
     id: {
       allowNull: false,
       primaryKey: true,
@@ -46,7 +44,7 @@ export const TodoInit = (sequalize: Sequelize.Sequelize): Sequelize.Model<TodoIn
     },
   }
   const Todo = sequalize.define<TodoInstance, ToDoAttributes>('Todo', attributes, {
-    tableName: 'Todos'
+    tableName: 'Todos',
   })
 
   return Todo

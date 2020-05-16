@@ -1,6 +1,7 @@
-import { RequestHandler } from "express"
-import jsonResponse from "./jsonResponse"
-import { APIError } from "../api/v1/Validations/messages"
+/* eslint-disable */
+import { RequestHandler } from 'express'
+import jsonResponse from './jsonResponse'
+import { APIError } from '../api/v1/Validations/messages'
 
 export default class CrudController {
   protected model: string = ''

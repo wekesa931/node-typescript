@@ -23,7 +23,6 @@ interface Data {
  * @return {ServerResponse} Response
  */
 const jsonResponse = (data: Data) => {
-  
   return data.res.status(data.status).json({
     ...data,
     res: undefined,

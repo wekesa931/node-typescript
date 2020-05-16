@@ -1,4 +1,5 @@
-import jsonResponse from "../../../utils/jsonResponse";
+/* eslint-disable */
+import jsonResponse from '../../../utils/jsonResponse'
 
 export class APIError extends Error {
   static errorResponseMessage(
@@ -6,13 +7,13 @@ export class APIError extends Error {
     message: string,
     res: any,
     properties?: string[],
-    nternalProperties?: any) {
-
+    nternalProperties?: any,
+  ) {
     return jsonResponse({
       res,
       status,
       message,
-      properties
+      properties,
     })
   }
 }

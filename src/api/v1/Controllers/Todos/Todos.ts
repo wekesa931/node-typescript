@@ -1,8 +1,9 @@
+/* eslint-disable */
 // import CrudController from "../../../../utils/crud"
-import { RequestHandler } from "express"
-import jsonResponse from "../../../../utils/jsonResponse"
-import { APIError } from "../../Validations/messages"
-import db from "../../../../database/models"
+import { RequestHandler } from 'express'
+import jsonResponse from '../../../../utils/jsonResponse'
+import { APIError } from '../../Validations/messages'
+import db from '../../../../database/models'
 
 class TodosCrud {
   protected model = 'Todos'
@@ -10,7 +11,7 @@ class TodosCrud {
   public createTodo: RequestHandler = async (req, res, next) => {
     try {
       const newTodo = await db[`${this.model}`].create({
-        ...req.body
+        ...req.body,
       })
       return jsonResponse({
         res,
@@ -22,21 +23,21 @@ class TodosCrud {
     }
   }
 
-  public getAllTodos:  RequestHandler = async (req, res, next) => {
-    try{
+  public getAllTodos: RequestHandler = async (req, res, next) => {
+    try {
       const allTodos = await db.Todos.findAll()
-      allTodos 
+      allTodos
         ? jsonResponse({
-          res,
-          status: 200,
-          todos: allTodos
-        })
+            res,
+            status: 200,
+            todos: allTodos,
+          })
         : next(APIError.errorResponseMessage(400, 'No todo found', res))
     } catch (err) {
       next(APIError.errorResponseMessage(500, 'Oops! Something went wrong', res))
     }
   }
- 
+
   // public getAlleArticles: RequestHandler = async (req, res, next) => {
   //   try {
   //     const articles = await db.Article.findAll()

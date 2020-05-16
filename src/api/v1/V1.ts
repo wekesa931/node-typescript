@@ -1,6 +1,6 @@
-import { Router } from "express"
-import { logger } from "../../utils/logger"
-import { todoRouter } from "./Routes/Todos/Todos"
+import { Router } from 'express'
+import { logger } from '../../utils/logger'
+import { todoRouter } from './Routes/Todos/Todos'
 
 export const routerV1 = Router()
 
